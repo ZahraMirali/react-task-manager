@@ -3,14 +3,13 @@ import styled from "styled-components";
 export const HeaderContainer = styled.button`
   display: flex;
   align-items: flex-end;
-  padding: 10px;
+  padding: 16px;
   cursor: pointer;
   width: 100%;
   outline: none;
   background: transparent;
   border: 0;
   text-align: left;
-  border-bottom: 1px solid #dddddd;
 `;
 
 export const Title = styled.span<{ $completed?: boolean }>`
@@ -34,4 +33,28 @@ export const ToggleIcon = styled.svg<{ $isOpen: boolean }>`
 
 export const TaskIcon = styled.svg<{ $completed?: boolean }>`
   fill: ${({ $completed }) => ($completed ? "#00b797" : "black")};
+`;
+
+export const AccordionItemContainer = styled.div`
+  border-bottom: 1px solid #dddddd;
+
+  &:last-child {
+    border-bottom: none;
+  }
+`;
+
+export const AccordionItemContent = styled.div<{ $isOpen: boolean }>`
+  overflow: hidden;
+  transition: max-height 0.3s ease-in-out;
+  max-height: ${({ $isOpen }) => ($isOpen ? "500px" : "0")};
+
+  & > div {
+    padding: 10px;
+  }
+`;
+
+export const AccordionContainer = styled.div`
+  border: 1px solid #dddddd;
+  border-radius: 10px;
+  overflow: hidden;
 `;

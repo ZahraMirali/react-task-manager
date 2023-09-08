@@ -4,6 +4,7 @@ export const CheckboxLabel = styled.label`
   display: flex;
   align-items: center;
   margin: 10px;
+  margin-bottom: 15px;
   cursor: pointer;
 `;
 
@@ -12,9 +13,9 @@ export const CheckboxInput = styled.input.attrs({ type: "checkbox" })`
 `;
 
 export const Checkmark = styled.span<{ $isChecked: boolean }>`
-  width: 15px;
-  height: 15px;
-  border: 2px solid #00b797;
+  width: 16px;
+  height: 16px;
+  border: 1px solid ${(props) => (props.$isChecked ? "#00b797" : "#999999")};
   background-color: ${(props) =>
     props.$isChecked ? "#00b797" : "transparent"};
   border-radius: 5px;
