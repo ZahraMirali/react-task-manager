@@ -22,8 +22,8 @@ const LoadingSpinner = styled.div`
     height: 64px;
     margin: 8px;
     border-radius: 50%;
-    border: 6px solid #00b797;
-    border-color: #00b797 transparent #00b797 transparent;
+    border: 6px solid var(--primary);
+    border-color: var(--primary) transparent var(--primary) transparent;
     animation: ${spin} 1.2s linear infinite;
   }
 `;

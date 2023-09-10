@@ -43,7 +43,7 @@ const AccordionHeader: React.FC<AccordionHeaderProps> = ({
         width="16px"
       >
         <polygon
-          fill="#999999"
+          fill="var(--secondary)"
           points="43,17.1 39.9,14 24,29.9 8.1,14 5,17.1 24,36"
         />
       </ToggleIcon>

@@ -16,11 +16,11 @@ export const Title = styled.span<{ $completed?: boolean }>`
   flex: 1;
   margin: 0 10px;
   font-size: 0.9rem;
-  color: ${({ $completed }) => ($completed ? "#00b797" : "black")};
+  color: ${({ $completed }) => ($completed ? "var(--primary)" : "black")};
 `;
 
 export const ToggleText = styled.span`
-  color: #999999;
+  color: var(--secondary);
   margin: 0 10px;
   font-size: 0.85rem;
 `;
@@ -32,11 +32,11 @@ export const ToggleIcon = styled.svg<{ $isOpen: boolean }>`
 `;
 
 export const TaskIcon = styled.svg<{ $completed?: boolean }>`
-  fill: ${({ $completed }) => ($completed ? "#00b797" : "black")};
+  fill: ${({ $completed }) => ($completed ? "var(--primary)" : "black")};
 `;
 
 export const AccordionItemContainer = styled.div`
-  border-bottom: 1px solid #dddddd;
+  border-bottom: 1px solid var(--secondary-light);
 
   &:last-child {
     border-bottom: none;
@@ -54,7 +54,7 @@ export const AccordionItemContent = styled.div<{ $isOpen: boolean }>`
 `;
 
 export const AccordionContainer = styled.div`
-  border: 1px solid #dddddd;
+  border: 1px solid var(--secondary-light);
   border-radius: 10px;
   overflow: hidden;
 `;

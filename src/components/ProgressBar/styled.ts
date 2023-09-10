@@ -11,7 +11,7 @@ export const ProgressBarContainer = styled.div`
 export const ProgressBarFill = styled.div<{ value: number }>`
   height: 25px;
   width: ${(props) => props.value}%;
-  background-color: #00b797;
+  background-color: var(--primary);
   border-radius: inherit;
   transition: width 0.5s ease-in-out;
   display: flex;
