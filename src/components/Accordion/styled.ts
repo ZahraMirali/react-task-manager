@@ -6,7 +6,6 @@ export const HeaderContainer = styled.button`
   padding: 16px;
   cursor: pointer;
   width: 100%;
-  outline: none;
   background: transparent;
   border: 0;
   text-align: left;

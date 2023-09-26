@@ -12,6 +12,10 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | undefined>(undefined);
 
+  const totalCount = taskCategories.flatMap(
+    (category) => category.tasks
+  ).length;
+
   useEffect(() => {
     getTasks()
       .then((response) => {
@@ -37,11 +41,18 @@ function App() {
     });
   };
 
-  const calculateNormalizedValue = (): number => {
-    const totalValue = taskCategories
+  const calculateNormalizedValue = (): {
+    normalizedValue: number;
+    count: number;
+  } => {
+    const totalDoneTasks = taskCategories
       .flatMap((category) => category.tasks)
-      .filter((task) => task.checked)
-      .reduce((sum, task) => sum + task.value, 0);
+      .filter((task) => task.checked);
+
+    const totalValue = totalDoneTasks.reduce(
+      (sum, task) => sum + task.value,
+      0
+    );
 
     const normalizedValue =
       (totalValue * 100) /
@@ -49,7 +60,7 @@ function App() {
         .flatMap((category) => category.tasks)
         .reduce((sum, task) => sum + task.value, 0);
 
-    return normalizedValue;
+    return { normalizedValue, count: totalDoneTasks.length };
   };
 
   if (loading) {
@@ -60,11 +71,16 @@ function App() {
     return <Alert message={error} />;
   }
 
+  const taskValue = calculateNormalizedValue();
+
   return (
     <LayoutContainer>
       <LayoutHeader>
         <h1>Lodgify Grouped Tasks</h1>
-        <ProgressBar value={calculateNormalizedValue()} />
+        <ProgressBar value={taskValue.normalizedValue} />
+        <p>
+          you have done {taskValue.count} out of {totalCount} tasks
+        </p>
       </LayoutHeader>
       <Accordion data={taskCategories} onCheckboxChange={onCheckboxChange} />
     </LayoutContainer>
